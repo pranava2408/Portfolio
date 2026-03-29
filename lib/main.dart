@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_portfolio/screens/achievements_screen.dart';
 import 'package:my_portfolio/screens/contact_screen.dart';
+import 'package:my_portfolio/screens/splash_screen.dart';
 
 import 'screens/home_screen.dart';
 import 'screens/projects_screen.dart';
@@ -10,6 +12,7 @@ import 'screens/about_screen.dart';
 
 final ValueNotifier<ThemeMode> themeNotifier = ValueNotifier(ThemeMode.dark);
 void main() {
+  usePathUrlStrategy();
   runApp(const MyPortfolioApp());
 }
 
@@ -73,7 +76,8 @@ class MyPortfolioApp extends StatelessWidget {
 final GoRouter _router = GoRouter(
   initialLocation: '/',
   routes: [
-    GoRoute(path: '/', builder: (context, state) => const HomeScreen()),
+    GoRoute(path: '/', builder: (context, state) => SplashScreen()),
+    GoRoute(path: '/home', builder: (context, state) => const HomeScreen()),
     GoRoute(
       path: '/projects',
       builder: (context, state) => const ProjectsScreen(),

@@ -2,9 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../main.dart'; // Imports the global themeNotifier
 
-class TopNavBar extends StatelessWidget implements PreferredSizeWidget {
+class TopNavBar extends StatefulWidget implements PreferredSizeWidget {
   const TopNavBar({super.key});
 
+  @override
+  State<TopNavBar> createState() => _TopNavBarState();
+  
+  @override
+  Size get preferredSize => const Size.fromHeight(70);
+}
+
+class _TopNavBarState extends State<TopNavBar> {
   @override
   Widget build(BuildContext context) {
     // Determine if we are currently in dark mode to change icon
@@ -18,7 +26,7 @@ class TopNavBar extends StatelessWidget implements PreferredSizeWidget {
         child: GestureDetector(
           onTap: () => context.go('/'),
           child: const Text(
-            '<PRANAVA />', // Your sleek developer logo
+            'Balla Pranava Chaitanya', // Your sleek developer logo
             style: TextStyle(
               fontWeight: FontWeight.bold,
               letterSpacing: 1.5,
@@ -27,7 +35,7 @@ class TopNavBar extends StatelessWidget implements PreferredSizeWidget {
         ),
       ),
       actions: [
-        _NavBarLink(title: 'Home', path: '/'),
+        _NavBarLink(title: 'Home', path: '/home'),
         _NavBarLink(title: 'Projects', path: '/projects'),
         _NavBarLink(title: 'About', path: '/about'),
         _NavBarLink(title: 'achievements', path: '/achievements'),
@@ -41,7 +49,10 @@ class TopNavBar extends StatelessWidget implements PreferredSizeWidget {
           onPressed: () {
             // Flip the global theme variable!
             themeNotifier.value = isDark ? ThemeMode.light : ThemeMode.dark;
-            isDark = !isDark;
+            // isDark = !isDark;
+            setState(() {
+              
+            });
           },
         ),
         const SizedBox(width: 30), // Edge padding
@@ -49,8 +60,8 @@ class TopNavBar extends StatelessWidget implements PreferredSizeWidget {
     );
   }
 
-  @override
-  Size get preferredSize => const Size.fromHeight(70);
+  // @override
+  // Size get preferredSize => const Size.fromHeight(70);
 }
 
 // A reusable widget for your text links to keep code clean
