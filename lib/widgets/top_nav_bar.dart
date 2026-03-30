@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:my_portfolio/widgets/nav_item.dart';
 import '../main.dart'; // Imports the global themeNotifier
 
 class TopNavBar extends StatefulWidget implements PreferredSizeWidget {
@@ -7,7 +8,7 @@ class TopNavBar extends StatefulWidget implements PreferredSizeWidget {
 
   @override
   State<TopNavBar> createState() => _TopNavBarState();
-  
+
   @override
   Size get preferredSize => const Size.fromHeight(70);
 }
@@ -18,45 +19,45 @@ class _TopNavBarState extends State<TopNavBar> {
     // Determine if we are currently in dark mode to change icon
     var isDark = themeNotifier.value == ThemeMode.dark;
 
-    return AppBar(
-      elevation: 0,
-      backgroundColor: Colors.transparent, // Keeps the sleek background
-      title: MouseRegion(
-        cursor: SystemMouseCursors.click,
-        child: GestureDetector(
-          onTap: () => context.go('/'),
-          child: const Text(
-            'Balla Pranava Chaitanya', // Your sleek developer logo
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              letterSpacing: 1.5,
+    return SizedBox(
+      height: 40,
+      child: AppBar(
+        elevation: 0,
+        backgroundColor: Theme.of(
+          context,
+        ).appBarTheme.backgroundColor, // Keeps the sleek background
+        title: MouseRegion(
+          cursor: SystemMouseCursors.click,
+          child: GestureDetector(
+            onTap: () => context.go('/'),
+            child: const Text(
+              'Balla Pranava Chaitanya', // Your sleek developer logo
+              style: TextStyle(fontWeight: FontWeight.bold, letterSpacing: 1.5),
             ),
           ),
         ),
+        actions: [
+          _NavBarLink(title: 'Home', path: '/home'),
+          _NavBarLink(title: 'Projects', path: '/projects'),
+          _NavBarLink(title: 'About', path: '/about'),
+          _NavBarLink(title: 'Achievements', path: '/achievements'),
+          _NavBarLink(title: 'Contact', path: '/contact'),
+          const SizedBox(width: 20),
+      
+          // The Dark/Light Mode Toggle Button
+          IconButton(
+            icon: Icon(isDark ? Icons.light_mode : Icons.dark_mode),
+            splashRadius: 20,
+            onPressed: () {
+              // Flip the global theme variable!
+              themeNotifier.value = isDark ? ThemeMode.light : ThemeMode.dark;
+              // isDark = !isDark;
+              setState(() {});
+            },
+          ),
+          const SizedBox(width: 30), // Edge padding
+        ],
       ),
-      actions: [
-        _NavBarLink(title: 'Home', path: '/home'),
-        _NavBarLink(title: 'Projects', path: '/projects'),
-        _NavBarLink(title: 'About', path: '/about'),
-        _NavBarLink(title: 'achievements', path: '/achievements'),
-        _NavBarLink(title: 'contact', path: '/contact'),
-        const SizedBox(width: 20),
-        
-        // The Dark/Light Mode Toggle Button
-        IconButton(
-          icon: Icon(isDark ? Icons.light_mode : Icons.dark_mode),
-          splashRadius: 20,
-          onPressed: () {
-            // Flip the global theme variable!
-            themeNotifier.value = isDark ? ThemeMode.light : ThemeMode.dark;
-            // isDark = !isDark;
-            setState(() {
-              
-            });
-          },
-        ),
-        const SizedBox(width: 30), // Edge padding
-      ],
     );
   }
 
@@ -73,16 +74,11 @@ class _NavBarLink extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 15),
-      child: TextButton(
-        onPressed: () => context.go(path),
-        style: TextButton.styleFrom(
-          foregroundColor: Theme.of(context).textTheme.bodyMedium?.color,
-          textStyle: const TextStyle(fontWeight: FontWeight.w600),
-        ),
-        child: Text(title),
-      ),
+    return NavItem(
+      title: title,
+      onPressed: () {
+        (context).go(path);
+      },
     );
   }
 }

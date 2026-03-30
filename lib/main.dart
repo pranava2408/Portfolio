@@ -33,17 +33,19 @@ class MyPortfolioApp extends StatelessWidget {
           themeMode: currentMode,
 
           // --- 1. CRISP LIGHT THEME ---
-            theme: ThemeData(
+          theme: ThemeData(
             brightness: Brightness.light,
-            scaffoldBackgroundColor: const Color(
-              0xFFFAFAFA,
-            ), // Soft, clean white
-            primaryColor: const Color(0xFF000000), // Black accents
+            scaffoldBackgroundColor: const Color(0xFFF9FAFB), // softer white
+            primaryColor: const Color(0xFF2563EB),
+
+            appBarTheme: const AppBarTheme(
+              backgroundColor: Colors.white,
+              elevation: 0,
+            ),
+
             textTheme: GoogleFonts.interTextTheme(
               Theme.of(context).textTheme.apply(
-                bodyColor: const Color(
-                  0xFF111827,
-                ), // Very dark gray for readable text
+                bodyColor: const Color(0xFF111827),
                 displayColor: const Color(0xFF111827),
               ),
             ),
@@ -52,16 +54,18 @@ class MyPortfolioApp extends StatelessWidget {
           // --- 2. PURE BLACK DARK THEME ---
           darkTheme: ThemeData(
             brightness: Brightness.dark,
-            scaffoldBackgroundColor: const Color(
-              0xFF000000,
-            ), // True sleek black
-            primaryColor: const Color(0xFFFFFFFF), // White accents
+            scaffoldBackgroundColor: const Color(0xFF0D1117), // ✅ premium dark
+            primaryColor: const Color(0xFF38BDF8), // accent color
+
+            appBarTheme: const AppBarTheme(
+              backgroundColor: Color(0xFF111827), // navbar separation
+              elevation: 0,
+            ),
+
             textTheme: GoogleFonts.interTextTheme(
               Theme.of(context).textTheme.apply(
-                bodyColor: const Color(
-                  0xFFE5E7EB,
-                ), // Soft off-white for reading comfort
-                displayColor: Colors.white, // Stark white for big headings
+                bodyColor: const Color(0xFFE5E7EB),
+                displayColor: Colors.white,
               ),
             ),
           ),
@@ -87,7 +91,7 @@ final GoRouter _router = GoRouter(
       path: '/achievements',
       builder: (context, state) => const AchievementsScreen(),
     ),
-     GoRoute(
+    GoRoute(
       path: '/contact',
       builder: (context, state) => const ContactScreen(),
     ),
