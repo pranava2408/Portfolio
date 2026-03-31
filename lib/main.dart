@@ -77,23 +77,111 @@ class MyPortfolioApp extends StatelessWidget {
   }
 }
 
+// final GoRouter _router = GoRouter(
+//   initialLocation: '/',
+//   routes: [
+//     GoRoute(path: '/', builder: (context, state) => SplashScreen()),
+//     GoRoute(path: '/home', builder: (context, state) => const HomeScreen()),
+//     GoRoute(
+//       path: '/projects',
+//       builder: (context, state) => const ProjectsScreen(),
+//     ),
+//     GoRoute(path: '/about', builder: (context, state) => const AboutScreen()),
+//     GoRoute(
+//       path: '/achievements',
+//       builder: (context, state) => const AchievementsScreen(),
+//     ),
+//     GoRoute(
+//       path: '/contact',
+//       builder: (context, state) => const ContactScreen(),
+//     ),
+//   ],
+// );
+
+
+// --- PREMIUM BOTTOM-TO-TOP TRANSITION HELPER ---
+CustomTransitionPage buildPageWithSlideUpTransition<T>({
+  required BuildContext context,
+  required GoRouterState state,
+  required Widget child,
+}) {
+  return CustomTransitionPage<T>(
+    key: state.pageKey,
+    child: child,
+    transitionDuration: const Duration(milliseconds: 400), // Speed of the slide
+    transitionsBuilder: (context, animation, secondaryAnimation, child) {
+      const begin = Offset(0.0, 1.0); // Starts at the bottom (Y = 1.0)
+      const end = Offset.zero;        // Ends exactly in the center
+      const curve = Curves.easeOutQuart; // Smooth deceleration
+
+      var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+
+      return SlideTransition(
+        position: animation.drive(tween),
+        child: child,
+      );
+    },
+  );
+}
+
+
 final GoRouter _router = GoRouter(
-  initialLocation: '/',
+  initialLocation: '/', 
   routes: [
-    GoRoute(path: '/', builder: (context, state) => SplashScreen()),
-    GoRoute(path: '/home', builder: (context, state) => const HomeScreen()),
+    GoRoute(
+      path: '/',
+      // Slide UP into the Home Screen!
+      pageBuilder: (context, state) => buildPageWithSlideUpTransition(
+        context: context,
+        state: state,
+        child:  SplashScreen(),
+      ),
+    ),
+    GoRoute(
+      path: '/home',
+      // Slide UP into the Home Screen!
+      pageBuilder: (context, state) => buildPageWithSlideUpTransition(
+        context: context,
+        state: state,
+        child: const HomeScreen(),
+      ),
+    ),
     GoRoute(
       path: '/projects',
-      builder: (context, state) => const ProjectsScreen(),
+      // Slide UP into the Projects Screen!
+      pageBuilder: (context, state) => buildPageWithSlideUpTransition(
+        context: context,
+        state: state,
+        child: const ProjectsScreen(),
+      ),
     ),
-    GoRoute(path: '/about', builder: (context, state) => const AboutScreen()),
-    GoRoute(
-      path: '/achievements',
-      builder: (context, state) => const AchievementsScreen(),
+     GoRoute(
+      path: '/about',
+      // Slide UP into the Projects Screen!
+      pageBuilder: (context, state) => buildPageWithSlideUpTransition(
+        context: context,
+        state: state,
+        child: const AboutScreen(),
+      ),
     ),
-    GoRoute(
+     GoRoute(
       path: '/contact',
-      builder: (context, state) => const ContactScreen(),
+      // Slide UP into the Projects Screen!
+      pageBuilder: (context, state) => buildPageWithSlideUpTransition(
+        context: context,
+        state: state,
+        child: const ContactScreen(),
+      ),
     ),
+     GoRoute(
+      path: '/achievements',
+      // Slide UP into the Projects Screen!
+      pageBuilder: (context, state) => buildPageWithSlideUpTransition(
+        context: context,
+        state: state,
+        child: const AchievementsScreen(),
+      ),
+    ),
+    // ... apply this same pageBuilder pattern to About, Contact, etc.
   ],
 );
