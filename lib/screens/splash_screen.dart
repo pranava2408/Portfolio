@@ -3,7 +3,7 @@ import 'package:go_router/go_router.dart';
 import '../main.dart';
 
 class SplashScreen extends StatefulWidget {
-  SplashScreen({super.key});
+  const SplashScreen({super.key});
 
   @override
   State<SplashScreen> createState() => _SplashScreenState();

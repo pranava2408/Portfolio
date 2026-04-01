@@ -143,7 +143,7 @@ final GoRouter _router = GoRouter(
       pageBuilder: (context, state) => buildPageWithSlideUpTransition(
         context: context,
         state: state,
-        child: const HomeScreen(),
+        child: PortfolioHomePage(),
       ),
     ),
     GoRoute(
