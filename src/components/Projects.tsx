@@ -1,7 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
-import Link from "next/link";
 
 const GithubIcon = ({ size = 24 }) => (
   <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -12,86 +11,88 @@ const GithubIcon = ({ size = 24 }) => (
 export default function Projects() {
   const projects = [
     {
-      title: "School Management System (Axiora)",
-      description:
-        "A comprehensive platform engineered with an AI 'Doubt Solver' using the Google Gemini API to deliver on-demand, LaTeX-formatted academic explanations for students. Includes automated school-wide email notifications.",
+      title: "Axiora - School Management System",
+      year: "2026",
+      description: "A comprehensive platform engineered with an AI 'Doubt Solver' using the Google Gemini API to deliver on-demand, LaTeX-formatted academic explanations for students. Includes automated school-wide email notifications.",
       tech: ["MongoDB", "Express.js", "React", "Node.js", "Gemini AI", "Nodemailer", "Razorpay"],
-      github: "https://github.com/pranava2408/axiora", // Update if actual link is different
-      website: "#", // Update if actual link exists
+      github: "https://github.com/pranava2408", 
+      website: "#", 
     },
     {
-      title: "OSPAT (Online Skills Proctoring & Assessment Tool)",
-      description:
-        "Engineered a companion mobile application for secure candidate proctoring, integrating Stream Video API for low-latency WebRTC. Architected a synchronous backend code execution engine to compile and monitor across 10+ languages.",
+      title: "OSPAT - Online Skills Proctoring",
+      year: "2025",
+      description: "Engineered a companion mobile application for secure candidate proctoring, integrating Stream Video API for low-latency WebRTC. Architected a synchronous backend code execution engine to compile and monitor across 10+ languages.",
       tech: ["React.js", "Flutter", "Node.js", "Stream Video API", "OnlineCompiler API"],
-      github: "https://github.com/pranava2408/ospat", // Update if actual link is different
-      website: "#", // Update if actual link exists
+      github: "https://github.com/pranava2408", 
+      website: "#", 
     },
   ];
 
   return (
-    <section id="projects" className="py-24 px-6 md:px-12">
-      <div className="max-w-7xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
+    <section id="projects" className="py-24 px-6 md:px-12 bg-[#030303]">
+      <div className="flex flex-col items-center justify-center mb-16 max-w-6xl mx-auto">
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5 }}
-          className="mb-16 flex items-center gap-4"
+          className="text-sm tracking-[0.3em] uppercase flex items-center gap-3 text-gray-500 mb-4"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">Some Things I've Built</h2>
-          <div className="h-[1px] bg-gray-700 flex-1 max-w-[300px]"></div>
-        </motion.div>
+          - Selected Works
+        </motion.h1>
+        <motion.h2
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="text-3xl md:text-5xl font-semibold tracking-tight text-white mb-6"
+        >
+          Featured Projects
+        </motion.h2>
+      </div>
 
-        <div className="space-y-24">
-          {projects.map((project, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.7 }}
-              className={`relative flex flex-col md:flex-row items-center gap-8 ${
-                idx % 2 !== 0 ? "md:flex-row-reverse" : ""
-              }`}
-            >
-              {/* Project Image Placeholder */}
-              <div className="w-full md:w-3/5 group relative">
-                <div className="absolute inset-0 bg-accent/20 group-hover:bg-transparent transition-colors duration-300 z-10 rounded-xl" />
-                <div className="relative w-full aspect-video bg-gray-800 rounded-xl overflow-hidden flex items-center justify-center border border-gray-700">
-                   <div className="text-gray-500 font-mono text-xl">Project Snapshot</div>
-                </div>
-              </div>
-
-              {/* Project Info */}
-              <div className={`w-full md:w-2/5 flex flex-col ${idx % 2 !== 0 ? "md:items-start" : "md:items-end"}`}>
-                <p className="text-accent text-sm font-mono mb-2">Featured Project</p>
-                <h3 className="text-2xl font-bold text-white mb-6 hover:text-accent transition-colors">
-                  <a href={project.website}>{project.title}</a>
+      <div className="max-w-6xl mx-auto">
+        {projects.map((project, idx) => (
+          <motion.div
+            key={idx}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.5, delay: idx * 0.1 }}
+          >
+            <div className="group border-t border-white/[0.08] py-10 md:py-12 transition-colors duration-300 hover:bg-white/[0.02] sm:px-4 md:px-6 rounded-xl">
+              <div className="flex items-start justify-between gap-4 mb-2">
+                <h3 className="text-xl md:text-3xl font-semibold text-[#e5e5e5] group-hover:text-white transition-colors duration-300">
+                  {project.title}
                 </h3>
-
-                <div className={`bg-[#111827] p-6 rounded-xl border border-gray-800 shadow-2xl relative z-20 text-gray-400 text-base leading-relaxed ${idx % 2 !== 0 ? "md:text-left" : "md:text-right"}`}>
-                  {project.description}
-                </div>
-
-                <ul className={`flex flex-wrap gap-4 mt-6 text-sm font-mono text-gray-500 ${idx % 2 !== 0 ? "justify-start" : "justify-end"}`}>
-                  {project.tech.map((item, i) => (
-                    <li key={i}>{item}</li>
-                  ))}
-                </ul>
-
-                <div className={`flex items-center gap-4 mt-6 ${idx % 2 !== 0 ? "justify-start" : "justify-end"}`}>
-                  <Link href={project.github} className="text-gray-400 hover:text-accent transition-colors">
+                <div className="flex gap-4 items-center shrink-0 mt-1">
+                  <a href={project.github} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white transition-colors duration-300">
                     <GithubIcon size={22} />
-                  </Link>
-                  <Link href={project.website} className="text-gray-400 hover:text-accent transition-colors">
+                  </a>
+                  <a href={project.website} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white transition-colors duration-300">
                     <ExternalLink size={22} />
-                  </Link>
+                  </a>
                 </div>
               </div>
-            </motion.div>
-          ))}
-        </div>
+              <p className="text-sm text-gray-500 mb-6 font-mono">{project.year}</p>
+              
+              <p className="text-base md:text-lg text-gray-400 leading-relaxed max-w-4xl mb-8">
+                {project.description}
+              </p>
+              
+              <div className="flex flex-wrap gap-2">
+                {project.tech.map((item, i) => (
+                  <span
+                    key={i}
+                    className="px-3 py-1.5 text-xs rounded-full border border-white/[0.1] text-gray-400 bg-white/[0.03]"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+        ))}
       </div>
     </section>
   );

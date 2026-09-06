@@ -1,93 +1,124 @@
 "use client";
 import { motion } from "framer-motion";
-import { Code2, Database, Layout, Terminal } from "lucide-react";
 
 export default function About() {
-  const skills = [
+  const categories = [
     {
-      category: "Languages",
-      items: ["C/C++", "Dart", "JavaScript", "TypeScript", "SQL", "HTML/CSS"],
-      icon: <Code2 size={20} className="text-accent" />,
+      title: "Languages",
+      skills: [
+        { name: "C/C++", icon: "devicon-cplusplus-plain" },
+        { name: "Dart", icon: "devicon-dart-plain" },
+        { name: "JavaScript", icon: "devicon-javascript-plain" },
+        { name: "TypeScript", icon: "devicon-typescript-plain" },
+        { name: "SQL", icon: "devicon-azuresqldatabase-plain" },
+        { name: "HTML/CSS", icon: "devicon-html5-plain" },
+      ],
     },
     {
-      category: "Frameworks & Libs",
-      items: ["React", "Next.js", "Flutter", "Node.js", "Express.js", "Tailwind CSS"],
-      icon: <Layout size={20} className="text-accent" />,
+      title: "Frontend & Mobile",
+      skills: [
+        { name: "React", icon: "devicon-react-original" },
+        { name: "Next.js", icon: "devicon-nextjs-plain" },
+        { name: "Flutter", icon: "devicon-flutter-plain" },
+        { name: "Tailwind CSS", icon: "devicon-tailwindcss-plain" },
+      ],
     },
     {
-      category: "Databases",
-      items: ["MongoDB", "Firebase", "Mongoose"],
-      icon: <Database size={20} className="text-accent" />,
+      title: "Backend & Database",
+      skills: [
+        { name: "Node.js", icon: "devicon-nodejs-plain" },
+        { name: "Express.js", icon: "devicon-express-original" },
+        { name: "MongoDB", icon: "devicon-mongodb-plain" },
+        { name: "Firebase", icon: "devicon-firebase-plain" },
+      ],
     },
     {
-      category: "Tools & Others",
-      items: ["Git", "GitHub", "VS Code", "Postman", "Android Studio"],
-      icon: <Terminal size={20} className="text-accent" />,
+      title: "Tools",
+      skills: [
+        { name: "Git", icon: "devicon-git-plain" },
+        { name: "GitHub", icon: "devicon-github-original" },
+        { name: "VS Code", icon: "devicon-vscode-plain" },
+        { name: "Postman", icon: "devicon-postman-plain" },
+      ],
     },
   ];
 
   return (
-    <section id="about" className="py-24 px-6 md:px-12 bg-[#111827]/30">
+    <section id="about" className="py-24 px-6 md:px-12 bg-[#0a0a0a]">
       <div className="max-w-7xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5 }}
-          className="mb-16 flex items-center gap-4"
+          className="flex flex-col items-center justify-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">About Me</h2>
-          <div className="h-[1px] bg-gray-700 flex-1 max-w-[300px]"></div>
+          <h1 className="text-sm tracking-[0.3em] uppercase flex items-center gap-3 text-gray-500 mb-4">
+            - A Little About Me
+          </h1>
+          <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-white text-center">
+            Building intelligent solutions
+          </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-16">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-gray-400 leading-relaxed space-y-6 text-lg"
-          >
-            <p>
-              Hello! I'm Pranava, a passionate developer pursuing my Bachelor of Technology in Computer Science and Engineering at the 
-              <strong className="text-white"> National Institute of Technology, Silchar</strong> (CGPA: 9.36).
-            </p>
-            <p>
-              My journey in software development began with building robust backend systems, and I quickly expanded into crafting 
-              full-stack applications across web and mobile platforms. I thrive at the intersection of AI, performance, and user experience.
-            </p>
-            <p>
-              Beyond development, I am deeply involved in competitive programming and algorithm design, where I actively compete and create problems for flagship national contests. 
-              I also serve as the Moderator for the Coding Club NIT Silchar, mentoring over 100 students in advanced algorithmic topics.
-            </p>
-          </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="w-full max-w-4xl mx-auto text-center flex flex-col gap-6 text-gray-400 text-lg leading-relaxed mb-24"
+        >
+          <p>
+            I'm a third-year Computer Science Engineering student at NIT Silchar (CGPA: 9.36) and a passionate developer who enjoys solving complex algorithmic problems and building meaningful digital experiences.
+          </p>
+          <p>
+            My primary interests lie in competitive programming and full-stack software development. I thrive at the intersection of AI, performance, and user experience, crafting applications across web and mobile platforms.
+          </p>
+          <p>
+            Beyond development, I actively compete in algorithmic contests, where I have achieved high ratings across platforms like Codeforces and LeetCode, and serve as a Moderator for the Coding Club NIT Silchar.
+          </p>
+        </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-          >
-            <h3 className="text-xl font-semibold text-white mb-6">Technical Arsenal</h3>
-            <div className="grid sm:grid-cols-2 gap-6">
-              {skills.map((skillGroup, idx) => (
-                <div key={idx} className="bg-gray-800/30 border border-gray-700/50 rounded-xl p-5 hover:border-accent/50 transition-colors">
-                  <div className="flex items-center gap-3 mb-4">
-                    {skillGroup.icon}
-                    <h4 className="text-white font-medium">{skillGroup.category}</h4>
+        {/* Tech Stack */}
+        <div className="flex flex-col items-center justify-center mb-12">
+          <h1 className="text-sm tracking-[0.3em] uppercase flex items-center gap-3 text-gray-500 mb-4">
+            - Tech Stack
+          </h1>
+          <h2 className="text-2xl md:text-4xl font-semibold tracking-tight text-white text-center">
+            Tools I Work With
+          </h2>
+        </div>
+
+        <div className="w-full max-w-6xl mx-auto">
+          {categories.map((category, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: idx * 0.1 }}
+              className="flex flex-col md:flex-row md:items-center border-t border-white/10 py-8 gap-4 md:gap-8"
+            >
+              <div className="md:w-1/4 shrink-0">
+                <h3 className="text-xs tracking-[0.25em] uppercase text-gray-500 font-medium">
+                  {category.title}
+                </h3>
+              </div>
+              <div className="md:w-3/4 grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-4">
+                {category.skills.map((skill, i) => (
+                  <div
+                    key={i}
+                    className="group relative py-5 px-4 flex flex-col items-center justify-center min-w-[90px] rounded-lg border border-white/[0.06] bg-white/[0.02] cursor-pointer transition-all duration-300 ease-out hover:scale-105 hover:border-white/20 hover:shadow-[0_0_25px_rgba(255,255,255,0.07)]"
+                  >
+                    <i className={`${skill.icon} text-3xl md:text-4xl transition-all duration-300 text-gray-400 group-hover:text-white`}></i>
+                    <span className="mt-3 text-[10px] sm:text-xs text-gray-500 font-medium tracking-wide whitespace-nowrap transition-colors duration-300 group-hover:text-gray-300">
+                      {skill.name}
+                    </span>
                   </div>
-                  <ul className="space-y-2">
-                    {skillGroup.items.map((item, i) => (
-                      <li key={i} className="text-gray-400 text-sm flex items-center gap-2">
-                        <span className="w-1.5 h-1.5 rounded-full bg-accent/50"></span>
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-          </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
