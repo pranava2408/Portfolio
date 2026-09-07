@@ -60,7 +60,7 @@ export default function Contact() {
   ];
 
   return (
-    <section id="contact" className="py-24 px-6 md:px-12 bg-[#030303] flex flex-col items-center">
+    <section id="contact" className="py-24 px-6 md:px-12 bg-gray-50 dark:bg-[#030303] flex flex-col items-center transition-colors duration-500">
       <div className="flex flex-col items-center justify-center mb-16 max-w-6xl mx-auto">
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
@@ -76,7 +76,7 @@ export default function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="text-3xl md:text-5xl font-semibold tracking-tight text-white mb-6 text-center"
+          className="text-3xl md:text-5xl font-semibold tracking-tight text-gray-900 dark:text-white mb-6 text-center"
         >
           Let's Work Together
         </motion.h2>
@@ -99,17 +99,17 @@ export default function Contact() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: idx * 0.1 }}
-            className="group relative flex items-center p-6 bg-[#111111] rounded-2xl border border-white/[0.05] hover:border-white/[0.3] transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,255,255,0.03)] cursor-pointer"
+            className="group relative flex items-center p-6 bg-white dark:bg-[#111111] rounded-2xl border border-gray-200 dark:border-white/[0.05] hover:border-gray-400 dark:hover:border-white/[0.3] transition-all duration-300 hover:shadow-lg dark:hover:shadow-[0_0_30px_rgba(255,255,255,0.03)] cursor-pointer"
           >
-            <div className={`w-12 h-12 rounded-xl flex items-center justify-center mr-5 ${item.bgTint}`}>
+            <div className={`w-12 h-12 rounded-xl flex items-center justify-center mr-5 ${item.bgTint.replace("bg-white/10", "bg-gray-100 dark:bg-white/10")}`}>
               {item.icon}
             </div>
             
             <div className="flex-1">
-              <h3 className="text-[11px] font-semibold text-gray-400 tracking-[0.15em] mb-1">
+              <h3 className="text-[11px] font-semibold text-gray-500 dark:text-gray-400 tracking-[0.15em] mb-1">
                 {item.title}
               </h3>
-              <p className="text-[15px] font-medium text-white truncate max-w-[200px] sm:max-w-xs">
+              <p className="text-[15px] font-medium text-gray-900 dark:text-white truncate max-w-[200px] sm:max-w-xs group-hover:text-blue-600 dark:group-hover:text-white transition-colors">
                 {item.title === "EMAIL" && copied ? "Copied to clipboard!" : item.subtitle}
               </p>
             </div>
@@ -117,10 +117,10 @@ export default function Contact() {
             <div className="flex items-center gap-3 opacity-50 group-hover:opacity-100 transition-opacity">
               {item.actionIcon && (
                 <div className="hidden group-hover:block transition-all">
-                  {item.actionIcon}
+                  <Copy size={16} className="text-gray-900 dark:text-white" />
                 </div>
               )}
-              <ArrowUpRight size={18} className="text-white" />
+              <ArrowUpRight size={18} className="text-gray-900 dark:text-white" />
             </div>
           </motion.a>
         ))}
@@ -131,7 +131,7 @@ export default function Contact() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5, delay: 0.4 }}
-        className="text-gray-500 text-sm mt-12 text-center"
+        className="text-gray-600 dark:text-gray-500 text-sm mt-12 text-center"
       >
         Prefer email? I typically respond within 24 hours.
       </motion.p>

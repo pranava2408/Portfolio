@@ -32,7 +32,7 @@ export default function Projects() {
   ];
 
   return (
-    <section id="projects" className="py-24 px-6 md:px-12 bg-[#030303]">
+    <section id="projects" className="py-24 px-6 md:px-12 bg-white dark:bg-[#030303] transition-colors duration-500">
       <div className="flex flex-col items-center justify-center mb-16 max-w-6xl mx-auto">
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
@@ -48,7 +48,7 @@ export default function Projects() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="text-3xl md:text-5xl font-semibold tracking-tight text-white mb-6"
+          className="text-3xl md:text-5xl font-semibold tracking-tight text-gray-900 dark:text-white mb-6"
         >
           Featured Projects
         </motion.h2>
@@ -63,9 +63,9 @@ export default function Projects() {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.5, delay: idx * 0.1 }}
           >
-            <div className="group border border-white/[0.08] bg-white/[0.01] transition-colors duration-300 hover:bg-white/[0.02] rounded-2xl overflow-hidden flex flex-col md:flex-row items-center gap-8 p-6 md:p-8">
+            <div className="group border border-gray-200 dark:border-white/[0.08] bg-gray-50 dark:bg-white/[0.01] transition-colors duration-300 hover:bg-gray-100 dark:hover:bg-white/[0.02] rounded-2xl overflow-hidden flex flex-col md:flex-row items-center gap-8 p-6 md:p-8 shadow-sm hover:shadow-md dark:shadow-none">
               
-              <div className="w-full md:w-1/2 relative rounded-xl overflow-hidden border border-white/[0.05] shadow-lg shadow-black/50 group-hover:shadow-accent/5 transition-all">
+              <div className="w-full md:w-1/2 relative rounded-xl overflow-hidden border border-gray-200 dark:border-white/[0.05] shadow-lg shadow-black/5 dark:shadow-black/50 group-hover:shadow-blue-500/10 dark:group-hover:shadow-accent/5 transition-all">
                  <div className="aspect-video relative w-full">
                     <Image src={project.image} alt={project.title} fill className="object-cover object-top transition-transform duration-700 group-hover:scale-105" />
                  </div>
@@ -73,21 +73,21 @@ export default function Projects() {
 
               <div className="w-full md:w-1/2 flex flex-col justify-center">
                 <div className="flex items-start justify-between gap-4 mb-2">
-                  <h3 className="text-xl md:text-3xl font-semibold text-[#e5e5e5] group-hover:text-white transition-colors duration-300">
+                  <h3 className="text-xl md:text-3xl font-semibold text-gray-900 dark:text-[#e5e5e5] group-hover:text-blue-600 dark:group-hover:text-white transition-colors duration-300">
                     {project.title}
                   </h3>
                   <div className="flex gap-4 items-center shrink-0 mt-1">
-                    <a href={project.github} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white transition-colors duration-300">
+                    <a href={project.github} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors duration-300">
                       <GithubIcon size={22} />
                     </a>
-                    <a href={project.website} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white transition-colors duration-300">
+                    <a href={project.website} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors duration-300">
                       <ExternalLink size={22} />
                     </a>
                   </div>
                 </div>
                 <p className="text-sm text-gray-500 mb-6 font-mono">{project.year}</p>
                 
-                <p className="text-base md:text-lg text-gray-400 leading-relaxed mb-8">
+                <p className="text-base md:text-lg text-gray-600 dark:text-gray-400 leading-relaxed mb-8">
                   {project.description}
                 </p>
                 
@@ -95,7 +95,7 @@ export default function Projects() {
                   {project.tech.map((item, i) => (
                     <span
                       key={i}
-                      className="px-3 py-1.5 text-xs rounded-full border border-white/[0.1] text-gray-400 bg-white/[0.03]"
+                      className="px-3 py-1.5 text-xs rounded-full border border-gray-200 dark:border-white/[0.1] text-gray-600 dark:text-gray-400 bg-white dark:bg-white/[0.03]"
                     >
                       {item}
                     </span>

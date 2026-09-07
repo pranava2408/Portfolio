@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <>
       <Preloader />
-      <main className="min-h-screen bg-[#0d1117] text-gray-300">
+      <main className="min-h-screen bg-gray-50 text-gray-900 dark:bg-[#030303] dark:text-gray-300 transition-colors duration-500">
         <Navbar />
         <Hero />
         <About />
