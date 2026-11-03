@@ -60,7 +60,7 @@ export default function Contact() {
   ];
 
   return (
-    <section id="contact" className="py-24 px-6 md:px-12 bg-gray-50 dark:bg-[#030303] flex flex-col items-center transition-colors duration-500">
+    <section id="contact" className="py-24 px-6 md:px-12 bg-transparent flex flex-col items-center">
       <div className="flex flex-col items-center justify-center mb-16 max-w-6xl mx-auto">
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
@@ -99,7 +99,7 @@ export default function Contact() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: idx * 0.1 }}
-            className="group relative flex items-center p-6 bg-white dark:bg-[#111111] rounded-2xl border border-gray-200 dark:border-white/[0.05] hover:border-gray-400 dark:hover:border-white/[0.3] transition-all duration-300 hover:shadow-lg dark:hover:shadow-[0_0_30px_rgba(255,255,255,0.03)] cursor-pointer"
+            className="group relative flex items-center p-6 bg-gray-50 dark:bg-white/[0.01] rounded-2xl border border-gray-200 dark:border-white/[0.05] hover:border-gray-300 dark:hover:border-white/[0.2] transition-all duration-300 hover:shadow-lg dark:hover:shadow-[0_0_30px_rgba(255,255,255,0.03)] cursor-pointer"
           >
             <div className={`w-12 h-12 rounded-xl flex items-center justify-center mr-5 ${item.bgTint.replace("bg-white/10", "bg-gray-100 dark:bg-white/10")}`}>
               {item.icon}

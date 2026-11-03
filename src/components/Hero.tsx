@@ -18,7 +18,7 @@ const LinkedinIcon = ({ size = 24 }) => (
 
 export default function Hero() {
   return (
-    <section id="hero" className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-white dark:bg-[#030303] rounded-b-[40px] z-10 border-b border-gray-200 dark:border-white/5 transition-colors duration-500">
+    <section id="hero" className="relative min-h-screen w-full flex items-center justify-center overflow-hidden rounded-b-[40px] z-10 border-b border-gray-200 dark:border-white/5">
       {/* Noise Filter */}
       <div 
         className="absolute inset-0 pointer-events-none opacity-[0.02] dark:opacity-[0.04] mix-blend-multiply dark:mix-blend-screen"

@@ -32,7 +32,7 @@ export default function Projects() {
   ];
 
   return (
-    <section id="projects" className="py-24 px-6 md:px-12 bg-white dark:bg-[#030303] transition-colors duration-500">
+    <section id="projects" className="py-24 px-6 md:px-12 bg-transparent">
       <div className="flex flex-col items-center justify-center mb-16 max-w-6xl mx-auto">
         <motion.h1
           initial={{ opacity: 0, y: 30 }}

@@ -36,7 +36,7 @@ export default function Achievements() {
   ];
 
   return (
-    <section id="achievements" className="py-24 px-6 md:px-12 bg-white dark:bg-[#0a0a0a] transition-colors duration-500">
+    <section id="achievements" className="py-24 px-6 md:px-12 bg-transparent">
       <div className="flex flex-col items-center justify-center mb-16 max-w-6xl mx-auto">
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
@@ -80,13 +80,13 @@ export default function Achievements() {
                 className="group relative p-6 rounded-xl border border-gray-200 dark:border-white/[0.04] bg-gray-50 dark:bg-white/[0.01] hover:bg-gray-100 dark:hover:bg-white/[0.03] hover:border-gray-300 dark:hover:border-white/10 transition-all flex flex-col sm:flex-row gap-6 items-center sm:items-start hover:z-50"
               >
                 {item.image && (
-                  <div className="w-full sm:w-24 shrink-0 rounded-lg border border-gray-200 dark:border-white/10 relative transition-all duration-300 group-hover:scale-[2.5] group-hover:-translate-y-4 group-hover:translate-x-8 origin-top-left z-50 shadow-xl group-hover:shadow-2xl">
+                  <div className="w-20 sm:w-24 shrink-0 rounded-lg border border-gray-200 dark:border-white/10 relative transition-all duration-300 hover:scale-150 sm:hover:scale-[2] lg:hover:scale-[2.5] hover:-translate-y-2 sm:hover:-translate-y-4 hover:translate-x-4 sm:hover:translate-x-8 origin-center sm:origin-top-left z-50 shadow-xl hover:shadow-2xl">
                     <div className="aspect-square relative w-full rounded-lg overflow-hidden bg-white">
                       <Image src={item.image} alt={item.title} fill className="object-cover" />
                     </div>
                   </div>
                 )}
-                <div className="flex-1 transition-opacity duration-300 group-hover:opacity-30 sm:group-hover:opacity-100">
+                <div className="flex-1 transition-opacity duration-300">
                   <div className="flex justify-between items-start mb-2 gap-4">
                     <h4 className="text-lg font-semibold text-gray-800 dark:text-gray-200 group-hover:text-blue-600 dark:group-hover:text-white transition-colors">{item.title}</h4>
                     <span className="text-xs font-mono text-gray-500 shrink-0 mt-1">{item.year}</span>
@@ -119,13 +119,13 @@ export default function Achievements() {
                 className="group relative p-6 rounded-xl border border-gray-200 dark:border-white/[0.04] bg-gray-50 dark:bg-white/[0.01] hover:bg-gray-100 dark:hover:bg-white/[0.03] hover:border-gray-300 dark:hover:border-white/10 transition-all flex flex-col sm:flex-row gap-6 items-center sm:items-start hover:z-50"
               >
                 {stat.image && (
-                  <div className="w-full sm:w-20 shrink-0 rounded-lg border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 relative transition-all duration-300 group-hover:scale-[2.5] group-hover:-translate-y-4 group-hover:-translate-x-8 origin-top-right z-50 shadow-xl group-hover:shadow-2xl">
+                  <div className="w-20 shrink-0 rounded-lg border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 relative transition-all duration-300 hover:scale-150 sm:hover:scale-[2] lg:hover:scale-[2.5] hover:-translate-y-2 sm:hover:-translate-y-4 hover:-translate-x-4 sm:hover:-translate-x-8 origin-center sm:origin-top-right z-50 shadow-xl hover:shadow-2xl">
                     <div className="aspect-square relative w-full rounded-lg overflow-hidden">
                       <Image src={stat.image} alt={stat.platform} fill className="object-contain p-2" />
                     </div>
                   </div>
                 )}
-                <div className="flex-1 w-full transition-opacity duration-300 group-hover:opacity-30 sm:group-hover:opacity-100">
+                <div className="flex-1 w-full transition-opacity duration-300">
                   <div className="flex justify-between items-center mb-2">
                     <h4 className="text-xl font-bold text-gray-800 dark:text-gray-200 group-hover:text-blue-600 dark:group-hover:text-white transition-colors">{stat.platform}</h4>
                     <span className="text-blue-600 dark:text-accent font-mono font-semibold px-3 py-1 bg-blue-100 dark:bg-accent/10 rounded-full">{stat.rating}</span>

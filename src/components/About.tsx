@@ -44,7 +44,7 @@ export default function About() {
   ];
 
   return (
-    <section id="about" className="py-24 px-6 md:px-12 bg-white dark:bg-[#0a0a0a] transition-colors duration-500">
+    <section id="about" className="py-24 px-6 md:px-12 bg-transparent">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

@@ -2,7 +2,7 @@
 
 export default function Footer() {
   return (
-    <footer className="w-full py-8 border-t border-gray-200 dark:border-white/[0.05] bg-gray-50 dark:bg-[#030303] text-center flex flex-col items-center justify-center transition-colors duration-500">
+    <footer className="w-full py-8 border-t border-gray-200 dark:border-white/[0.05] bg-transparent text-center flex flex-col items-center justify-center transition-colors duration-500">
       <div className="flex items-center gap-2 mb-4">
         <span className="bg-gray-900 text-white dark:bg-white dark:text-black px-2 py-1 rounded-md text-xs font-bold tracking-tight">PC</span>
         <span className="text-gray-500 dark:text-gray-400 font-mono tracking-tighter text-sm">Pranava.</span>
